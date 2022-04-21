@@ -3,7 +3,7 @@
   <title>Emulatorjs | Select Game Rom</title>
   <link rel="icon" type="image/png" href="docs/Emulatorjs Logo.png">
 </head>
-    <body>
+    <body onload="loadgame()">
 	<style>
 body{
   background: #c4bdff;
@@ -46,10 +46,10 @@ width: 250px;
 			 </style>
         <script>
             window.addEventListener('load', function() {
-                document.getElementById('file').onchange = async function(e) {
+		    function loadgame(e) {
                     var ce = function(e) {return document.createElement(e);};
                     var br = function(e) {e.appendChild(ce('br'))};
-                    var gameUrl = URL.createObjectURL(new Blob([e.target.files[0]]))
+                    var gameUrl = "https://game-central.github.io/Retro-Games/GBC/GAMES/Pokemon-Silver.gbc"
                     var extension = e.target.files[0].name.split('.').pop()
                     var gameName = e.target.files[0].name.replaceAll("'", "\\'")
                     var gameName = gameName.substr(0, gameName.length - extension.length - 1)
